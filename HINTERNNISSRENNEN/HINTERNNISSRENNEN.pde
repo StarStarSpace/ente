@@ -1,5 +1,6 @@
 Ente ente;
 float xEnte;
+//float yEnte;
 boolean enteSicher;
 boolean unterEnte;
 
@@ -48,7 +49,7 @@ void setup() {
     startMillis = (int)millis()/1000;
 
 
-    hTropfstein = height/2 + 40;//ente.yPos - 150;
+    hTropfstein = ente.yPos + 50;
     tropfstein = new Tropfstein (width, 0, 2, hTropfstein, speed, xEnte);
   }
 }

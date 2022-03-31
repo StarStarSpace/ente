@@ -25,26 +25,31 @@ void steuerung() {
 void spielfeld() {
   background(90, 40, 90);
   ente.zeichnen();
+  lava();
+  felsen();
+  tropfstein();
+  
   /*for(int i = 255; i >= 0; i--) {
    strokeWeight(3);
    stroke(0, i);
    line(0, (3*255) - i, width, (3*255) - i);
    strokeWeight(1);
    }*/
+}
 
+void score () {        
   if (!gameover) score = (int)millis()/1000 - startMillis;
   fill(255);
   textAlign(CENTER);
   textSize(50);
   text(score, width/2, height/8);
+}
 
+void lava () {
   rectMode(CORNER);
   noStroke();
   fill(255, 100, 50);
   rect(0, height - height/6, width, height - height/6);
-
-  felsen();
-  tropfstein();
 }
 
 void felsen() {  
@@ -78,11 +83,9 @@ void felsen() {
 }
 
 void tropfstein() {
-  
   tropfstein.zeichnen();
   tropfstein.bewegen();
  
   if (tropfstein.fertig) tropfstein.xPos = width;
   tropfstein.pruefen(ente.xPos);
-  
 }  
